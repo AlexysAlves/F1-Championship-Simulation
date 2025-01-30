@@ -1,0 +1,430 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Home
+{% endblock %}
+
+{% block main %}
+<script>
+function myFunction1() {
+  var x = document.getElementById("scoring");
+  if (x.style.display === "none") {
+    x.style.display = "block";
+  } else {
+    x.style.display = "none";
+  }
+}
+</script>
+<script>
+function myFunction2() {
+  var y = document.getElementById("information");
+  if (y.style.display === "none") {
+    y.style.display = "block";
+  } else {
+    y.style.display = "none";
+  }
+}
+</script>
+    
+    <h1>Welcome {{user_name}}!</h1>
+    <p class="p1">  In this web-based application, you can simulate the possible results for the 2021 Formula 1 World Championship, by selectiong the final ranking of each race from the calendar (you may also choose the number of races you want to simulate, up to a maximum of 23).</p>
+
+ 
+            
+    <br>
+    <button class="btn btn-primary" style="backgorund-color: black" onclick="myFunction2()">Hide/Show information about drivers and teams</button>
+    <br>
+    
+    <div id="information">
+    <br>
+       
+      <table class="table table-striped" style="font-size: 90%; text-align:center; background-color: #E8E8E8">
+          <caption class="p2" style="text-align:center; caption-side: top">General information about teams and drivers</caption>
+        <thead>
+            <tr>
+                <th>Team</th>
+                <th>Number</th>
+                <th>Driver</th>
+                <th>Initials</th>
+                <th>Engine</th>
+                <th>Chassi</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td rowspan="2" style="text-align: left; padding-top: 35px">
+                    <img alt="Germany" src="//upload.wikimedia.org/wikipedia/commons/thumb/b/ba/Flag_of_Germany.svg/22px-Flag_of_Germany.svg.png"
+                    decoding="async" width="22" height="13" class="thumbborder"
+                    srcset="//upload.wikimedia.org/wikipedia/commons/thumb/b/ba/Flag_of_Germany.svg/33px-Flag_of_Germany.svg.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/b/ba/Flag_of_Germany.svg/44px-Flag_of_Germany.svg.png 2x"
+                    data-file-width="1000" data-file-height="600">
+                    <a href="/mercedes">Mercedes</a>
+                </td>
+                <td>44</td>
+                <td style="text-align: left">
+                    <img alt="United Kingdom" src="//upload.wikimedia.org/wikipedia/commons/thumb/a/ae/Flag_of_the_United_Kingdom.svg/22px-Flag_of_the_United_Kingdom.svg.png"
+                    decoding="async" width="22" height="11" class="thumbborder"
+                    srcset="//upload.wikimedia.org/wikipedia/commons/thumb/a/ae/Flag_of_the_United_Kingdom.svg/33px-Flag_of_the_United_Kingdom.svg.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/a/ae/Flag_of_the_United_Kingdom.svg/44px-Flag_of_the_United_Kingdom.svg.png 2x"
+                    data-file-width="1200" data-file-height="600">
+                    <a href="/hamilton">Lewis Hamilton</a>
+                </td>
+                <td>HAM</td>
+                <td rowspan="2" style="padding-top: 35px">Mercedes</td>
+                <td rowspan="2" style="padding-top: 35px">W12</td>
+            </tr>
+            <tr>
+                <td>77</td>
+                <td style="text-align: left">
+                    <img alt="Finland" src="//upload.wikimedia.org/wikipedia/commons/thumb/b/bc/Flag_of_Finland.svg/22px-Flag_of_Finland.svg.png"
+                    decoding="async" width="22" height="13" class="thumbborder"
+                    srcset="//upload.wikimedia.org/wikipedia/commons/thumb/b/bc/Flag_of_Finland.svg/33px-Flag_of_Finland.svg.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/b/bc/Flag_of_Finland.svg/44px-Flag_of_Finland.svg.png 2x"
+                    data-file-width="1800" data-file-height="1100">
+                    <a href="/bottas">Valterri Bottas</a>
+                </td>
+                <td>BOT</td>
+            </tr>
+            <tr>
+                <td rowspan="2" style="text-align: left; padding-top: 35px">
+                    <img alt="Austria" src="//upload.wikimedia.org/wikipedia/commons/thumb/4/41/Flag_of_Austria.svg/22px-Flag_of_Austria.svg.png"
+                    decoding="async" width="22" height="15" class="thumbborder"
+                    srcset="//upload.wikimedia.org/wikipedia/commons/thumb/4/41/Flag_of_Austria.svg/33px-Flag_of_Austria.svg.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/4/41/Flag_of_Austria.svg/44px-Flag_of_Austria.svg.png 2x"
+                    data-file-width="900" data-file-height="600">
+                    <a href="/redbull">Red Bull</a>
+                </td>
+                <td>11</td>
+                <td style="text-align: left">
+                    <img alt="Mexico" src="//upload.wikimedia.org/wikipedia/commons/thumb/f/fc/Flag_of_Mexico.svg/22px-Flag_of_Mexico.svg.png"
+                    decoding="async" width="22" height="13" class="thumbborder"
+                    srcset="//upload.wikimedia.org/wikipedia/commons/thumb/f/fc/Flag_of_Mexico.svg/33px-Flag_of_Mexico.svg.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/f/fc/Flag_of_Mexico.svg/44px-Flag_of_Mexico.svg.png 2x"
+                    data-file-width="980" data-file-height="560">
+                    <a href="/perez">Sergio Perez</a>
+                </td>
+                <td>PER</td>
+                <td rowspan="2" style="padding-top: 35px">Honda</td>
+                <td rowspan="2" style="padding-top: 35px">RB16B</td>
+            </tr>
+            <tr>
+                <td>33</td>
+                <td style="text-align: left">
+                    <img alt="Netherlands" src="//upload.wikimedia.org/wikipedia/commons/thumb/2/20/Flag_of_the_Netherlands.svg/22px-Flag_of_the_Netherlands.svg.png"
+                    decoding="async" width="22" height="15" class="thumbborder"
+                    srcset="//upload.wikimedia.org/wikipedia/commons/thumb/2/20/Flag_of_the_Netherlands.svg/33px-Flag_of_the_Netherlands.svg.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/2/20/Flag_of_the_Netherlands.svg/44px-Flag_of_the_Netherlands.svg.png 2x"
+                    data-file-width="900" data-file-height="600">
+                    <a href="/verstappen">Max Verstappen</a>
+                </td>
+                <td>VER</td>
+            </tr>
+            <tr>
+                <td rowspan="2" style="text-align: left; padding-top: 35px">
+                    <img alt="United Kingdom" src="//upload.wikimedia.org/wikipedia/commons/thumb/a/ae/Flag_of_the_United_Kingdom.svg/22px-Flag_of_the_United_Kingdom.svg.png"
+                    decoding="async" width="22" height="11" class="thumbborder"
+                    srcset="//upload.wikimedia.org/wikipedia/commons/thumb/a/ae/Flag_of_the_United_Kingdom.svg/33px-Flag_of_the_United_Kingdom.svg.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/a/ae/Flag_of_the_United_Kingdom.svg/44px-Flag_of_the_United_Kingdom.svg.png 2x"
+                    data-file-width="1200" data-file-height="600">
+                    <a href="/mclaren">McLaren</a>
+                </td>
+                <td>3</td>
+                <td style="text-align: left">
+                    <img alt="Australia" src="//upload.wikimedia.org/wikipedia/commons/thumb/b/b9/Flag_of_Australia.svg/22px-Flag_of_Australia.svg.png"
+                    decoding="async" width="22" height="11" class="thumbborder"
+                    srcset="//upload.wikimedia.org/wikipedia/commons/thumb/b/b9/Flag_of_Australia.svg/33px-Flag_of_Australia.svg.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/b/b9/Flag_of_Australia.svg/44px-Flag_of_Australia.svg.png 2x"
+                    data-file-width="1280" data-file-height="640">
+                    <a href="/ricciardo">Daniel Ricciardo</a>
+                </td>
+                <td>RIC</td>
+                <td rowspan="2" style="padding-top: 35px">Mercedes</td>
+                <td rowspan="2" style="padding-top: 35px">MCL53M</td>
+            </tr>
+            <tr>
+                <td>4</td>
+                <td style="text-align: left">
+                    <img alt="United Kingdom" src="//upload.wikimedia.org/wikipedia/commons/thumb/a/ae/Flag_of_the_United_Kingdom.svg/22px-Flag_of_the_United_Kingdom.svg.png"
+                    decoding="async" width="22" height="11" class="thumbborder"
+                    srcset="//upload.wikimedia.org/wikipedia/commons/thumb/a/ae/Flag_of_the_United_Kingdom.svg/33px-Flag_of_the_United_Kingdom.svg.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/a/ae/Flag_of_the_United_Kingdom.svg/44px-Flag_of_the_United_Kingdom.svg.png 2x"
+                    data-file-width="1200" data-file-height="600">
+                    <a href="/norris">Lando Norris</a>
+                </td>
+                <td>NOR</td>
+            </tr>
+            <tr>
+                <td rowspan="2" style="text-align: left; padding-top: 35px">
+                    <img alt="United Kingdom" src="//upload.wikimedia.org/wikipedia/commons/thumb/a/ae/Flag_of_the_United_Kingdom.svg/22px-Flag_of_the_United_Kingdom.svg.png"
+                    decoding="async" width="22" height="11" class="thumbborder"
+                    srcset="//upload.wikimedia.org/wikipedia/commons/thumb/a/ae/Flag_of_the_United_Kingdom.svg/33px-Flag_of_the_United_Kingdom.svg.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/a/ae/Flag_of_the_United_Kingdom.svg/44px-Flag_of_the_United_Kingdom.svg.png 2x"
+                    data-file-width="1200" data-file-height="600">
+                    <a href="/astonmartin">Aston Martin</a>
+                </td>
+                <td>5</td>
+                <td style="text-align: left">
+                    <img alt="Germany" src="//upload.wikimedia.org/wikipedia/commons/thumb/b/ba/Flag_of_Germany.svg/22px-Flag_of_Germany.svg.png"
+                    decoding="async" width="22" height="13" class="thumbborder"
+                    srcset="//upload.wikimedia.org/wikipedia/commons/thumb/b/ba/Flag_of_Germany.svg/33px-Flag_of_Germany.svg.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/b/ba/Flag_of_Germany.svg/44px-Flag_of_Germany.svg.png 2x"
+                    data-file-width="1000" data-file-height="600">
+                    <a href="/vettel">Sebastian Vettel</a>
+                </td>
+                <td>VET</td>
+                <td rowspan="2" style="padding-top: 35px">Mercedes</td>
+                <td rowspan="2" style="padding-top: 35px">AMR21</td>
+            </tr>
+            <tr>
+                <td>18</td>
+                <td style="text-align: left">
+                    <img alt="Canada" src="//upload.wikimedia.org/wikipedia/commons/thumb/d/d9/Flag_of_Canada_%28Pantone%29.svg/22px-Flag_of_Canada_%28Pantone%29.svg.png" 
+                    decoding="async" width="22" height="11" class="thumbborder" 
+                    srcset="//upload.wikimedia.org/wikipedia/commons/thumb/d/d9/Flag_of_Canada_%28Pantone%29.svg/33px-Flag_of_Canada_%28Pantone%29.svg.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/d/d9/Flag_of_Canada_%28Pantone%29.svg/44px-Flag_of_Canada_%28Pantone%29.svg.png 2x" 
+                    data-file-width="1200" data-file-height="600">
+                    <a href="/stroll">Lance Stroll</a>
+                </td>
+                <td>STR</td>
+            </tr>
+            <tr>
+                <td rowspan="2" style="text-align: left; padding-top: 35px">
+                    <img alt="France" src="//upload.wikimedia.org/wikipedia/commons/thumb/c/c3/Flag_of_France.svg/22px-Flag_of_France.svg.png" 
+                    decoding="async" width="22" height="15" class="thumbborder" 
+                    srcset="//upload.wikimedia.org/wikipedia/commons/thumb/c/c3/Flag_of_France.svg/33px-Flag_of_France.svg.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/c/c3/Flag_of_France.svg/44px-Flag_of_France.svg.png 2x" 
+                    data-file-width="900" data-file-height="600">
+                    <a href="/alpine">Alpine</a>
+                </td>
+                <td>14</td>
+                <td style="text-align: left">
+                    <img alt="Spain" src="//upload.wikimedia.org/wikipedia/commons/thumb/9/9a/Flag_of_Spain.svg/22px-Flag_of_Spain.svg.png" 
+                    decoding="async" width="22" height="15" class="thumbborder" 
+                    srcset="//upload.wikimedia.org/wikipedia/commons/thumb/9/9a/Flag_of_Spain.svg/33px-Flag_of_Spain.svg.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/9/9a/Flag_of_Spain.svg/44px-Flag_of_Spain.svg.png 2x" 
+                    data-file-width="750" data-file-height="500">
+                    <a href="/alonso">Fernando Alonso</a>
+                </td>
+                <td>ALO</td>
+                <td rowspan="2" style="padding-top: 35px">Renault</td>
+                <td rowspan="2" style="padding-top: 35px">A521</td>
+            </tr>
+            <tr>
+                <td>31</td>
+                <td style="text-align: left">
+                    <img alt="France" src="//upload.wikimedia.org/wikipedia/commons/thumb/c/c3/Flag_of_France.svg/22px-Flag_of_France.svg.png" 
+                    decoding="async" width="22" height="15" class="thumbborder" 
+                    srcset="//upload.wikimedia.org/wikipedia/commons/thumb/c/c3/Flag_of_France.svg/33px-Flag_of_France.svg.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/c/c3/Flag_of_France.svg/44px-Flag_of_France.svg.png 2x" 
+                    data-file-width="900" data-file-height="600">
+                    <a href="/ocon">Esteban Ocon</a>
+                </td>
+                <td>OCO</td>
+            </tr>
+            <tr>
+                <td rowspan="2" style="text-align: left; padding-top: 35px">
+                    <img alt="Italy" src="//upload.wikimedia.org/wikipedia/commons/thumb/0/03/Flag_of_Italy.svg/22px-Flag_of_Italy.svg.png" 
+                    decoding="async" width="22" height="15" class="thumbborder" 
+                    srcset="//upload.wikimedia.org/wikipedia/commons/thumb/0/03/Flag_of_Italy.svg/33px-Flag_of_Italy.svg.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/0/03/Flag_of_Italy.svg/44px-Flag_of_Italy.svg.png 2x" 
+                    data-file-width="1500" data-file-height="1000">
+                    <a href="/ferrari">Ferrari</a>
+                </td>
+                <td>16</td>
+                <td style="text-align: left">
+                    <img alt="Monaco" src="//upload.wikimedia.org/wikipedia/commons/thumb/e/ea/Flag_of_Monaco.svg/22px-Flag_of_Monaco.svg.png" 
+                    decoding="async" width="22" height="18" class="thumbborder" 
+                    srcset="//upload.wikimedia.org/wikipedia/commons/thumb/e/ea/Flag_of_Monaco.svg/33px-Flag_of_Monaco.svg.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/e/ea/Flag_of_Monaco.svg/44px-Flag_of_Monaco.svg.png 2x" 
+                    data-file-width="1000" data-file-height="800">
+                    <a href="/leclerc">Charles Leclerc</a>
+                </td>
+                <td>LEC</td>
+                <td rowspan="2" style="padding-top: 35px">Ferrari</td>
+                <td rowspan="2" style="padding-top: 35px">SF21</td>
+            </tr>
+            <tr>
+                <td>55</td>
+                <td style="text-align: left">
+                    <img alt="Spain" src="//upload.wikimedia.org/wikipedia/commons/thumb/9/9a/Flag_of_Spain.svg/22px-Flag_of_Spain.svg.png" 
+                    decoding="async" width="22" height="15" class="thumbborder" 
+                    srcset="//upload.wikimedia.org/wikipedia/commons/thumb/9/9a/Flag_of_Spain.svg/33px-Flag_of_Spain.svg.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/9/9a/Flag_of_Spain.svg/44px-Flag_of_Spain.svg.png 2x" 
+                    data-file-width="750" data-file-height="500">
+                    <a href="/sainz">Carlos Sainz</a>
+                </td>
+                <td>SAI</td>
+            </tr>
+            <tr>
+                <td rowspan="2" style="text-align: left; padding-top: 35px">
+                    <img alt="Italy" src="//upload.wikimedia.org/wikipedia/commons/thumb/0/03/Flag_of_Italy.svg/22px-Flag_of_Italy.svg.png" 
+                    decoding="async" width="22" height="15" class="thumbborder" 
+                    srcset="//upload.wikimedia.org/wikipedia/commons/thumb/0/03/Flag_of_Italy.svg/33px-Flag_of_Italy.svg.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/0/03/Flag_of_Italy.svg/44px-Flag_of_Italy.svg.png 2x" 
+                    data-file-width="1500" data-file-height="1000">
+                    <a href="/alphatauri">AlphaTauri</a>
+                </td>
+                <td>10</td>
+                <td style="text-align: left">
+                    <img alt="France" src="//upload.wikimedia.org/wikipedia/commons/thumb/c/c3/Flag_of_France.svg/22px-Flag_of_France.svg.png" 
+                    decoding="async" width="22" height="15" class="thumbborder" 
+                    srcset="//upload.wikimedia.org/wikipedia/commons/thumb/c/c3/Flag_of_France.svg/33px-Flag_of_France.svg.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/c/c3/Flag_of_France.svg/44px-Flag_of_France.svg.png 2x" 
+                    data-file-width="900" data-file-height="600">
+                    <a href="/gasly">Pierre Gasly</a>
+                </td>
+                <td>GAS</td>
+                <td rowspan="2" style="padding-top: 35px">Honda</td>
+                <td rowspan="2" style="padding-top: 35px">AT02</td>
+            </tr>
+            <tr>
+                <td>22</td>
+                <td style="text-align: left">
+                    <img alt="Japan" src="//upload.wikimedia.org/wikipedia/commons/thumb/9/9e/Flag_of_Japan.svg/22px-Flag_of_Japan.svg.png" 
+                    decoding="async" width="22" height="15" class="thumbborder" 
+                    srcset="//upload.wikimedia.org/wikipedia/commons/thumb/9/9e/Flag_of_Japan.svg/33px-Flag_of_Japan.svg.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/9/9e/Flag_of_Japan.svg/44px-Flag_of_Japan.svg.png 2x" 
+                    data-file-width="900" data-file-height="600">
+                    <a href="/tsunoda">Yuki Tsunoda</a>
+                </td>
+                <td>TSU</td>
+            </tr>
+            <tr>
+                <td rowspan="2" style="text-align: left; padding-top: 35px">
+                    <img alt="Switzerland" src="//upload.wikimedia.org/wikipedia/commons/thumb/f/f3/Flag_of_Switzerland.svg/16px-Flag_of_Switzerland.svg.png" 
+                    decoding="async" width="16" height="16" class="thumbborder" 
+                    srcset="//upload.wikimedia.org/wikipedia/commons/thumb/f/f3/Flag_of_Switzerland.svg/24px-Flag_of_Switzerland.svg.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/f/f3/Flag_of_Switzerland.svg/32px-Flag_of_Switzerland.svg.png 2x" 
+                    data-file-width="512" data-file-height="512">
+                    <a href="/alfaromeo">Alfa Romeo</a>
+                </td>
+                <td>7</td>
+                <td style="text-align: left">
+                    <img alt="Finland" src="//upload.wikimedia.org/wikipedia/commons/thumb/b/bc/Flag_of_Finland.svg/22px-Flag_of_Finland.svg.png"
+                    decoding="async" width="22" height="13" class="thumbborder"
+                    srcset="//upload.wikimedia.org/wikipedia/commons/thumb/b/bc/Flag_of_Finland.svg/33px-Flag_of_Finland.svg.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/b/bc/Flag_of_Finland.svg/44px-Flag_of_Finland.svg.png 2x"
+                    data-file-width="1800" data-file-height="1100">
+                    <a href="/raikkonen">Kimi Raikkonen</a>
+                </td>
+                <td>RAI</td>
+                <td rowspan="2" style="padding-top: 35px">Ferrari</td>
+                <td rowspan="2" style="padding-top: 35px">C41</td>
+            </tr>
+            <tr>
+                <td>99</td>
+                <td style="text-align: left">
+                    <img alt="Italy" src="//upload.wikimedia.org/wikipedia/commons/thumb/0/03/Flag_of_Italy.svg/22px-Flag_of_Italy.svg.png" 
+                    decoding="async" width="22" height="15" class="thumbborder" 
+                    srcset="//upload.wikimedia.org/wikipedia/commons/thumb/0/03/Flag_of_Italy.svg/33px-Flag_of_Italy.svg.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/0/03/Flag_of_Italy.svg/44px-Flag_of_Italy.svg.png 2x" 
+                    data-file-width="1500" data-file-height="1000">
+                    <a href="/giovinazzi">Antonio Giovinazzi</a>
+                </td>
+                <td>GIO</td>
+            </tr>
+            <tr>
+                <td rowspan="2" style="text-align: left; padding-top: 35px">
+                    <img alt="Unitaded States" src="//upload.wikimedia.org/wikipedia/commons/thumb/a/a4/Flag_of_the_United_States.svg/22px-Flag_of_the_United_States.svg.png" 
+                    decoding="async" width="22" height="12" class="thumbborder" 
+                    srcset="//upload.wikimedia.org/wikipedia/commons/thumb/a/a4/Flag_of_the_United_States.svg/33px-Flag_of_the_United_States.svg.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/a/a4/Flag_of_the_United_States.svg/44px-Flag_of_the_United_States.svg.png 2x" 
+                    data-file-width="1235" data-file-height="650">
+                    <a href="/haas">Haas</a>
+                </td>
+                <td>9</td>
+                <td style="text-align: left">
+                    <img alt="Russia" src="//upload.wikimedia.org/wikipedia/commons/thumb/f/f3/Flag_of_Russia.svg/22px-Flag_of_Russia.svg.png" 
+                    decoding="async" width="22" height="15" class="thumbborder" 
+                    srcset="//upload.wikimedia.org/wikipedia/commons/thumb/f/f3/Flag_of_Russia.svg/33px-Flag_of_Russia.svg.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/f/f3/Flag_of_Russia.svg/44px-Flag_of_Russia.svg.png 2x" 
+                    data-file-width="900" data-file-height="600">
+                    <a href="/mazepin">Nikita Mazepin</a>
+                </td>
+                <td>MAZ</td>
+                <td rowspan="2" style="padding-top: 35px">Ferrari</td>
+                <td rowspan="2" style="padding-top: 35px">VF21</td>
+            </tr>
+            <tr>
+                <td>47</td>
+                <td style="text-align: left">
+                    <img alt="Germany" src="//upload.wikimedia.org/wikipedia/commons/thumb/b/ba/Flag_of_Germany.svg/22px-Flag_of_Germany.svg.png"
+                    decoding="async" width="22" height="13" class="thumbborder"
+                    srcset="//upload.wikimedia.org/wikipedia/commons/thumb/b/ba/Flag_of_Germany.svg/33px-Flag_of_Germany.svg.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/b/ba/Flag_of_Germany.svg/44px-Flag_of_Germany.svg.png 2x"
+                    data-file-width="1000" data-file-height="600">
+                    <a href="/schumacher">Mick Schumacher</a>
+                </td>
+                <td>SCH</td>
+            </tr>
+            <tr>
+                <td rowspan="2" style="text-align: left; padding-top: 35px">
+                    <img alt="United Kingdom" src="//upload.wikimedia.org/wikipedia/commons/thumb/a/ae/Flag_of_the_United_Kingdom.svg/22px-Flag_of_the_United_Kingdom.svg.png"
+                    decoding="async" width="22" height="11" class="thumbborder"
+                    srcset="//upload.wikimedia.org/wikipedia/commons/thumb/a/ae/Flag_of_the_United_Kingdom.svg/33px-Flag_of_the_United_Kingdom.svg.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/a/ae/Flag_of_the_United_Kingdom.svg/44px-Flag_of_the_United_Kingdom.svg.png 2x"
+                    data-file-width="1200" data-file-height="600">
+                    <a href="/williams">Williams</a>
+                </td>
+                <td>6</td>
+                <td style="text-align: left">
+                    <img alt="Canada" src="//upload.wikimedia.org/wikipedia/commons/thumb/d/d9/Flag_of_Canada_%28Pantone%29.svg/22px-Flag_of_Canada_%28Pantone%29.svg.png" 
+                    decoding="async" width="22" height="11" class="thumbborder" 
+                    srcset="//upload.wikimedia.org/wikipedia/commons/thumb/d/d9/Flag_of_Canada_%28Pantone%29.svg/33px-Flag_of_Canada_%28Pantone%29.svg.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/d/d9/Flag_of_Canada_%28Pantone%29.svg/44px-Flag_of_Canada_%28Pantone%29.svg.png 2x" 
+                    data-file-width="1200" data-file-height="600">
+                    <a href="/latifi">Nicholas Latifi</a>
+                </td>
+                <td>LAT</td>
+                <td rowspan="2" style="padding-top: 35px">Mercedes</td>
+                <td rowspan="2" style="padding-top: 35px">FW43B</td>
+            </tr>
+            <tr>
+                <td>63</td>
+                <td style="text-align: left">
+                    <img alt="United Kingdom" src="//upload.wikimedia.org/wikipedia/commons/thumb/a/ae/Flag_of_the_United_Kingdom.svg/22px-Flag_of_the_United_Kingdom.svg.png"
+                    decoding="async" width="22" height="11" class="thumbborder"
+                    srcset="//upload.wikimedia.org/wikipedia/commons/thumb/a/ae/Flag_of_the_United_Kingdom.svg/33px-Flag_of_the_United_Kingdom.svg.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/a/ae/Flag_of_the_United_Kingdom.svg/44px-Flag_of_the_United_Kingdom.svg.png 2x"
+                    data-file-width="1200" data-file-height="600">
+                    <a href="/russel">George Russel</a>
+                </td>
+                <td>RUS</td>
+            </tr>
+        </tbody>
+    </table>
+    </div>
+    <br>
+               <button class="btn btn-primary" style="backgorund-color: black" onclick="myFunction1()">Hide/Show scoring criteria</button>
+    <br>
+     <div id="scoring">
+    <table class="table table-striped" style="font-size: 100%; text-align:center; background-color: #E8E8E8">
+        <caption class="p2" style="text-align:center; caption-side: top">Scoring criteria</caption>
+        <thead>
+            <tr>
+                <th>Placing</th>
+                <th>Points</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>First</td>
+                <td>25</td>
+            </tr>
+            <tr>
+                <td>Second</td>
+                <td>18</td>
+            </tr>
+            <tr>
+                <td>Third</td>
+                <td>15</td>
+            </tr>
+            <tr>
+                <td>Fourth</td>
+                <td>12</td>
+            </tr>
+            <tr>
+                <td>Fifth</td>
+                <td>10</td>
+            </tr>
+            <tr>
+                <td>Sixth</td>
+                <td>8</td>
+            </tr>
+            <tr>
+                <td>Seventh</td>
+                <td>6</td>
+            </tr>
+            <tr>
+                <td>Eighth</td>
+                <td>4</td>
+            </tr>
+            <tr>
+                <td>Nineth</td>
+                <td>2</td>
+            </tr>
+            <tr>
+                <td>Tenth</td>
+                <td>1</td>
+            </tr>
+            <tr>
+                <td>Fastest lap (among the top 10)</td>
+                <td>1</td>
+            </tr>
+        </tbody>
+    </table>
+    </div>
+    <br>
+    <footer class="p2">Click on "Start simulating" to begin.</footer>
+{% endblock %}
+

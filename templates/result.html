@@ -1,0 +1,57 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Final result
+{% endblock %}
+
+{% block main %}
+
+    <table class="table table-striped" style="font-size: 85%; text-align:center; background-color: #E8E8E8">
+        <caption class ="p2" style="text-align:center; caption-side: top">Drivers championship</caption>
+        <thead>
+            <tr>
+                <th>Driver</th>
+                <th>Team</th>
+                <th>Points</th>
+                <th>Wins</th>
+                <th>Fastest laps</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for driver in result %}
+            <tr>
+                <td>{{driver['name']}}</td>
+                <td>{{driver['team']}}</td>
+                <td>{{driver['points']}}</td>
+                <td>{{driver['wins']}}</td>
+                <td>{{driver['laps']}}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <br>
+    
+    <table class="table table-striped" style="font-size: 85%; text-align:center; background-color: #E8E8E8">
+        <caption class ="p2"  style="text-align:center; caption-side: top">Constructors championship</caption>
+        <thead>
+            <tr>
+                <th>Team</th>
+                <th>Points</th>
+                <th>Wins</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for point in points %}
+            <tr>
+                <td>{{point['team']}}</td>
+                <td>{{point['SUM(points)']}}</td>
+                <td>{{point['SUM(wins)']}}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <form action="/saved" method="post">
+            <button class="btn btn-primary" type="submit">Save results</button>
+    </form>
+    
+{% endblock %}

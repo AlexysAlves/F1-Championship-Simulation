@@ -1,0 +1,544 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Simulation
+{% endblock %}
+
+{% block main %}
+<form action="/result" name="simulation" method="post">
+    <table style="font-size: 85%; text-align:center; background-color: #E8E8E8">
+        <thead>
+            <tr>
+                <th>
+                    <b>POS.</b>
+                </th>
+                <th>
+                    <b>BAR</b>
+                    <br>
+                    <img alt="Bahrein" src="//upload.wikimedia.org/wikipedia/commons/thumb/2/2c/Flag_of_Bahrain.svg/22px-Flag_of_Bahrain.svg.png" 
+                    decoding="async" width="22" height="13" class="thumbborder" 
+                    srcset="//upload.wikimedia.org/wikipedia/commons/thumb/2/2c/Flag_of_Bahrain.svg/33px-Flag_of_Bahrain.svg.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/2/2c/Flag_of_Bahrain.svg/44px-Flag_of_Bahrain.svg.png 2x"
+                    data-file-width="1500" data-file-height="900">
+                </th>
+                {% if nraces >= 2 %}
+                <th>
+                    <b>EMI</b>
+                    <br>
+                    <img alt="Emília-Romanha" src="//upload.wikimedia.org/wikipedia/commons/thumb/7/77/Flag_of_Emilia-Romagna_%28de_facto%29.svg/22px-Flag_of_Emilia-Romagna_%28de_facto%29.svg.png" 
+                    decoding="async" width="22" height="14" class="thumbborder" 
+                    srcset="//upload.wikimedia.org/wikipedia/commons/thumb/7/77/Flag_of_Emilia-Romagna_%28de_facto%29.svg/33px-Flag_of_Emilia-Romagna_%28de_facto%29.svg.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/7/77/Flag_of_Emilia-Romagna_%28de_facto%29.svg/44px-Flag_of_Emilia-Romagna_%28de_facto%29.svg.png 2x"
+                    data-file-width="851" data-file-height="524">
+                </th>
+                {% endif %}
+                {% if nraces >= 3 %}
+                <th>
+                    <b>POR</b>
+                    <br>
+                    <img alt="Portugal" src="//upload.wikimedia.org/wikipedia/commons/thumb/5/5c/Flag_of_Portugal.svg/22px-Flag_of_Portugal.svg.png" 
+                    decoding="async" width="22" height="15" class="thumbborder" 
+                    srcset="//upload.wikimedia.org/wikipedia/commons/thumb/5/5c/Flag_of_Portugal.svg/33px-Flag_of_Portugal.svg.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/5/5c/Flag_of_Portugal.svg/44px-Flag_of_Portugal.svg.png 2x" 
+                    data-file-width="600" data-file-height="400">
+                </th>
+                {% endif %}
+                {% if nraces >= 4 %}
+                <th>
+                    <b>SPA</b>
+                    <br>
+                    <img alt="Spain" src="//upload.wikimedia.org/wikipedia/commons/thumb/9/9a/Flag_of_Spain.svg/22px-Flag_of_Spain.svg.png" 
+                    decoding="async" width="22" height="15" class="thumbborder" 
+                    srcset="//upload.wikimedia.org/wikipedia/commons/thumb/9/9a/Flag_of_Spain.svg/33px-Flag_of_Spain.svg.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/9/9a/Flag_of_Spain.svg/44px-Flag_of_Spain.svg.png 2x" 
+                    data-file-width="750" data-file-height="500">
+                </th>
+                {% endif %}
+                {% if nraces >= 5 %}
+                <th>
+                    <b>MON</b>
+                    <br>
+                    <img alt="Monaco" src="//upload.wikimedia.org/wikipedia/commons/thumb/e/ea/Flag_of_Monaco.svg/22px-Flag_of_Monaco.svg.png" 
+                    decoding="async" width="22" height="18" class="thumbborder" 
+                    srcset="//upload.wikimedia.org/wikipedia/commons/thumb/e/ea/Flag_of_Monaco.svg/33px-Flag_of_Monaco.svg.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/e/ea/Flag_of_Monaco.svg/44px-Flag_of_Monaco.svg.png 2x" 
+                    data-file-width="1000" data-file-height="800">
+                </th>
+                {% endif %}
+                {% if nraces >= 6 %}
+                <th>
+                    <b>AZE</b>
+                    <br>
+                    <img alt="Azerbaijan" src="//upload.wikimedia.org/wikipedia/commons/thumb/d/dd/Flag_of_Azerbaijan.svg/22px-Flag_of_Azerbaijan.svg.png" 
+                    decoding="async" width="22" height="11" class="thumbborder" 
+                    srcset="//upload.wikimedia.org/wikipedia/commons/thumb/d/dd/Flag_of_Azerbaijan.svg/33px-Flag_of_Azerbaijan.svg.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/d/dd/Flag_of_Azerbaijan.svg/44px-Flag_of_Azerbaijan.svg.png 2x" 
+                    data-file-width="1200" data-file-height="600">
+                </th>
+                {% endif %}
+                {% if nraces >= 7 %}
+                <th>
+                    <b>FRA</b>
+                    <br>
+                    <img alt="France" src="//upload.wikimedia.org/wikipedia/commons/thumb/c/c3/Flag_of_France.svg/22px-Flag_of_France.svg.png" 
+                    decoding="async" width="22" height="15" class="thumbborder" 
+                    srcset="//upload.wikimedia.org/wikipedia/commons/thumb/c/c3/Flag_of_France.svg/33px-Flag_of_France.svg.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/c/c3/Flag_of_France.svg/44px-Flag_of_France.svg.png 2x" 
+                    data-file-width="900" data-file-height="600">
+                </th>
+                {% endif %}
+                {% if nraces >= 8 %}
+                <th>
+                    <b>STY</b>
+                    <br>
+                    <img alt="Styria" src="//upload.wikimedia.org/wikipedia/commons/thumb/e/ed/Flag_of_Styria.svg/22px-Flag_of_Styria.svg.png" 
+                    decoding="async" width="22" height="15" class="thumbborder" 
+                    srcset="//upload.wikimedia.org/wikipedia/commons/thumb/e/ed/Flag_of_Styria.svg/33px-Flag_of_Styria.svg.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/e/ed/Flag_of_Styria.svg/44px-Flag_of_Styria.svg.png 2x" 
+                    data-file-width="600" data-file-height="400">
+                </th>
+                {% endif %}
+                {% if nraces >= 9 %}
+                <th>
+                    <b>AUT</b>
+                    <br>
+                    <img alt="Austria" src="//upload.wikimedia.org/wikipedia/commons/thumb/4/41/Flag_of_Austria.svg/22px-Flag_of_Austria.svg.png" 
+                    decoding="async" width="22" height="15" class="thumbborder" 
+                    srcset="//upload.wikimedia.org/wikipedia/commons/thumb/4/41/Flag_of_Austria.svg/33px-Flag_of_Austria.svg.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/4/41/Flag_of_Austria.svg/44px-Flag_of_Austria.svg.png 2x" 
+                    data-file-width="900" data-file-height="600">
+                </th>
+                {% endif %}
+                {% if nraces >= 10 %}
+                <th>
+                    <b>GRB</b>
+                    <br>
+                    <img alt="United Kingdom" src="//upload.wikimedia.org/wikipedia/commons/thumb/a/ae/Flag_of_the_United_Kingdom.svg/22px-Flag_of_the_United_Kingdom.svg.png" 
+                    decoding="async" width="22" height="11" class="thumbborder" 
+                    srcset="//upload.wikimedia.org/wikipedia/commons/thumb/a/ae/Flag_of_the_United_Kingdom.svg/33px-Flag_of_the_United_Kingdom.svg.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/a/ae/Flag_of_the_United_Kingdom.svg/44px-Flag_of_the_United_Kingdom.svg.png 2x" 
+                    data-file-width="1200" data-file-height="600">
+                </th>
+                {% endif %}
+                {% if nraces >= 11 %}
+                <th>
+                    <b>HUN</b>
+                    <br>
+                    <img alt="Hungary" src="//upload.wikimedia.org/wikipedia/commons/thumb/c/c1/Flag_of_Hungary.svg/22px-Flag_of_Hungary.svg.png" 
+                    decoding="async" width="22" height="11" class="thumbborder" 
+                    srcset="//upload.wikimedia.org/wikipedia/commons/thumb/c/c1/Flag_of_Hungary.svg/33px-Flag_of_Hungary.svg.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/c/c1/Flag_of_Hungary.svg/44px-Flag_of_Hungary.svg.png 2x" 
+                    data-file-width="1200" data-file-height="600">
+                </th>
+                {% endif %}
+                {% if nraces >= 12 %}
+                <th>
+                    <b>BEL</b>
+                    <br>
+                    <img alt="Belgium" src="//upload.wikimedia.org/wikipedia/commons/thumb/9/92/Flag_of_Belgium_%28civil%29.svg/22px-Flag_of_Belgium_%28civil%29.svg.png"
+                    decoding="async" width="22" height="15" class="thumbborder" 
+                    srcset="//upload.wikimedia.org/wikipedia/commons/thumb/9/92/Flag_of_Belgium_%28civil%29.svg/33px-Flag_of_Belgium_%28civil%29.svg.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/9/92/Flag_of_Belgium_%28civil%29.svg/44px-Flag_of_Belgium_%28civil%29.svg.png 2x" 
+                    data-file-width="900" data-file-height="600">
+                </th>
+                {% endif %}
+                {% if nraces >= 13 %}
+                <th>
+                    <b>NET</b>
+                    <br>
+                    <img alt="Netherlands" src="//upload.wikimedia.org/wikipedia/commons/thumb/2/20/Flag_of_the_Netherlands.svg/22px-Flag_of_the_Netherlands.svg.png" 
+                    decoding="async" width="22" height="15" class="thumbborder" 
+                    srcset="//upload.wikimedia.org/wikipedia/commons/thumb/2/20/Flag_of_the_Netherlands.svg/33px-Flag_of_the_Netherlands.svg.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/2/20/Flag_of_the_Netherlands.svg/44px-Flag_of_the_Netherlands.svg.png 2x" 
+                    data-file-width="900" data-file-height="600">
+                </th>
+                {% endif %}
+                {% if nraces >= 14 %}
+                <th>
+                    <b>ITA</b>
+                    <br>
+                    <img alt="Italy" src="//upload.wikimedia.org/wikipedia/commons/thumb/0/03/Flag_of_Italy.svg/22px-Flag_of_Italy.svg.png" 
+                    decoding="async" width="22" height="15" class="thumbborder" 
+                    srcset="//upload.wikimedia.org/wikipedia/commons/thumb/0/03/Flag_of_Italy.svg/33px-Flag_of_Italy.svg.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/0/03/Flag_of_Italy.svg/44px-Flag_of_Italy.svg.png 2x" 
+                    data-file-width="1500" data-file-height="1000">
+                </th>
+                {% endif %}
+                {% if nraces >= 15 %}
+                <th>
+                    <b>RUS</b>
+                    <br>
+                    <img alt="Russia" src="//upload.wikimedia.org/wikipedia/commons/thumb/f/f3/Flag_of_Russia.svg/22px-Flag_of_Russia.svg.png" 
+                    decoding="async" width="22" height="15" class="thumbborder" 
+                    srcset="//upload.wikimedia.org/wikipedia/commons/thumb/f/f3/Flag_of_Russia.svg/33px-Flag_of_Russia.svg.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/f/f3/Flag_of_Russia.svg/44px-Flag_of_Russia.svg.png 2x" 
+                    data-file-width="900" data-file-height="600">
+                </th>
+                {% endif %}
+                {% if nraces >= 16 %}
+                <th>
+                    <b>TUR</b>
+                    <br>
+                    <img alt="Turkey" src="//upload.wikimedia.org/wikipedia/commons/thumb/b/b4/Flag_of_Turkey.svg/22px-Flag_of_Turkey.svg.png" 
+                    decoding="async" width="22" height="15" class="thumbborder" 
+                    srcset="//upload.wikimedia.org/wikipedia/commons/thumb/b/b4/Flag_of_Turkey.svg/33px-Flag_of_Turkey.svg.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/b/b4/Flag_of_Turkey.svg/44px-Flag_of_Turkey.svg.png 2x" 
+                    data-file-width="1200" data-file-height="800">
+                </th>
+                {% endif %}
+                {% if nraces >= 17 %}
+                <th>
+                    <b>JAP</b>
+                    <br>
+                    <img alt="Japan" src="//upload.wikimedia.org/wikipedia/commons/thumb/9/9e/Flag_of_Japan.svg/22px-Flag_of_Japan.svg.png" 
+                    decoding="async" width="22" height="15" class="thumbborder" 
+                    srcset="//upload.wikimedia.org/wikipedia/commons/thumb/9/9e/Flag_of_Japan.svg/33px-Flag_of_Japan.svg.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/9/9e/Flag_of_Japan.svg/44px-Flag_of_Japan.svg.png 2x" 
+                    data-file-width="900" data-file-height="600">
+                </th>
+                {% endif %}
+                {% if nraces >= 18 %}
+                <th>
+                    <b>USA</b>
+                    <br>
+                    <img alt="United States" src="//upload.wikimedia.org/wikipedia/commons/thumb/a/a4/Flag_of_the_United_States.svg/22px-Flag_of_the_United_States.svg.png" 
+                    decoding="async" width="22" height="12" class="thumbborder" 
+                    srcset="//upload.wikimedia.org/wikipedia/commons/thumb/a/a4/Flag_of_the_United_States.svg/33px-Flag_of_the_United_States.svg.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/a/a4/Flag_of_the_United_States.svg/44px-Flag_of_the_United_States.svg.png 2x" 
+                    data-file-width="1235" data-file-height="650">
+                </th>
+                {% endif %}
+                {% if nraces >= 19 %}
+                <th>
+                    <b>MEX</b>
+                    <br>
+                    <img alt="Mexico" src="//upload.wikimedia.org/wikipedia/commons/thumb/f/fc/Flag_of_Mexico.svg/22px-Flag_of_Mexico.svg.png" 
+                    decoding="async" width="22" height="13" class="thumbborder" 
+                    srcset="//upload.wikimedia.org/wikipedia/commons/thumb/f/fc/Flag_of_Mexico.svg/33px-Flag_of_Mexico.svg.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/f/fc/Flag_of_Mexico.svg/44px-Flag_of_Mexico.svg.png 2x" 
+                    data-file-width="980" data-file-height="560">
+                </th>
+                {% endif %}
+                {% if nraces >= 20 %}
+                <th>
+                    <b>BRA</b>
+                    <br>
+                    <img alt="Brazil" src="//upload.wikimedia.org/wikipedia/commons/thumb/0/05/Flag_of_Brazil.svg/22px-Flag_of_Brazil.svg.png" 
+                    decoding="async" width="22" height="15" class="thumbborder" 
+                    srcset="//upload.wikimedia.org/wikipedia/commons/thumb/0/05/Flag_of_Brazil.svg/33px-Flag_of_Brazil.svg.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/0/05/Flag_of_Brazil.svg/44px-Flag_of_Brazil.svg.png 2x" 
+                    data-file-width="720" data-file-height="504">
+                </th>
+                {% endif %}
+                {% if nraces >= 21 %}
+                <th>
+                    <b>AUS</b>
+                    <br>
+                    <img alt="Australia" src="//upload.wikimedia.org/wikipedia/commons/thumb/b/b9/Flag_of_Australia.svg/22px-Flag_of_Australia.svg.png" 
+                    decoding="async" width="22" height="11" class="thumbborder" 
+                    srcset="//upload.wikimedia.org/wikipedia/commons/thumb/b/b9/Flag_of_Australia.svg/33px-Flag_of_Australia.svg.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/b/b9/Flag_of_Australia.svg/44px-Flag_of_Australia.svg.png 2x" 
+                    data-file-width="1280" data-file-height="640">
+                </th>
+                {% endif %}
+                {% if nraces >= 22 %}
+                <th>
+                    <b>SAU</b>
+                    <br>
+                    <img alt="Saudi Arabia" src="//upload.wikimedia.org/wikipedia/commons/thumb/0/0d/Flag_of_Saudi_Arabia.svg/22px-Flag_of_Saudi_Arabia.svg.png" 
+                    decoding="async" width="22" height="15" class="thumbborder" 
+                    srcset="//upload.wikimedia.org/wikipedia/commons/thumb/0/0d/Flag_of_Saudi_Arabia.svg/33px-Flag_of_Saudi_Arabia.svg.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/0/0d/Flag_of_Saudi_Arabia.svg/44px-Flag_of_Saudi_Arabia.svg.png 2x" 
+                    data-file-width="900" data-file-height="600">
+                </th>
+                {% endif %}
+                {% if nraces >= 23 %}
+                <th>
+                    <b>ABU</b>
+                    <br>
+                    <img alt="United Arab Emirates" 
+                    src="//upload.wikimedia.org/wikipedia/commons/thumb/c/cb/Flag_of_the_United_Arab_Emirates.svg/22px-Flag_of_the_United_Arab_Emirates.svg.png" 
+                    decoding="async" width="22" height="11" class="thumbborder" 
+                    srcset="//upload.wikimedia.org/wikipedia/commons/thumb/c/cb/Flag_of_the_United_Arab_Emirates.svg/33px-Flag_of_the_United_Arab_Emirates.svg.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/c/cb/Flag_of_the_United_Arab_Emirates.svg/44px-Flag_of_the_United_Arab_Emirates.svg.png 2x" 
+                    data-file-width="1200" data-file-height="600">
+                </th>
+                {% endif %}
+            </tr>
+        </thead>
+        <tbody>
+            <tr style="background-color: #FFD700">
+                <th>1</th>
+                {% for i in range(nraces) %}
+                <td class="form-group">
+                    <select name="first{{i+1}}" id="first{{i+1}}" placeholder="Driver">
+                    <option disabled selected value="">First</option>
+                    {% for driver in drivers %}
+                        <option value="{{driver.initials}}">{{driver["initials"]}}</option>
+                    {% endfor %}
+                    </select> 
+                    <br>
+                    <input type="radio" id="fastestlapA{{i+1}}" name="fastestlap{{i+1}}" value="fastestlapA{{i+1}}">
+                    <label for="fastestlapA{{i+1}}"> Fastest lap</label>
+                </td>
+                {% endfor %}
+            </tr>
+            <tr style="background-color: #C0C0C0">
+                <th>2</th>
+                {% for i in range(nraces) %}
+                <td class="form-group">
+                    <select name="second{{i+1}}" id="second{{i+1}}" placeholder="Driver">
+                    <option disabled selected value="">Second</option>
+                    {% for driver in drivers %}
+                        <option value="{{driver.initials}}">{{driver["initials"]}}</option>
+                    {% endfor %}
+                    </select> 
+                    <br>
+                    <input type="radio" id="fastestlapB{{i+1}}" name="fastestlap{{i+1}}"  value="fastestlapB{{i+1}}">
+                    <label for="fastestlapB{{i+1}}"> Fastest lap</label>
+                </td>
+                {% endfor %}
+            </tr>
+            <tr style="background-color: #B08D57">
+                <th>3</th>
+                {% for i in range(nraces) %}
+                <td class="form-group">
+                    <select name="third{{i+1}}" id="third{{i+1}}" placeholder="Driver">
+                    <option disabled selected value="">Third</option>
+                    {% for driver in drivers %}
+                        <option value="{{driver.initials}}">{{driver["initials"]}}</option>
+                    {% endfor %}
+                    </select> 
+                    <br>
+                    <input type="radio" id="fastestlapC{{i+1}}" name="fastestlap{{i+1}}"  value="fastestlapC{{i+1}}">
+                    <label for="fastestlapC{{i+1}}"> Fastest lap</label>
+                </td>
+                {% endfor %}
+            </tr>
+            <tr>
+                <th>4</th>
+                {% for i in range(nraces) %}
+                <td class="form-group">
+                    <select name="fourth{{i+1}}" id="fourth{{i+1}}" placeholder="Driver">
+                    <option disabled selected value="">Fourth</option>
+                    {% for driver in drivers %}
+                        <option value="{{driver.initials}}">{{driver["initials"]}}</option>
+                    {% endfor %}
+                    </select> 
+                    <br>
+                    <input type="radio" id="fastestlapD{{i+1}}" name="fastestlap{{i+1}}"  value="fastestlapD{{i+1}}">
+                    <label for="fastestlapD{{i+1}}"> Fastest lap</label>
+                </td>
+                {% endfor %}
+            </tr>
+            <tr>
+                <th>5</th>
+                {% for i in range(nraces) %}
+                <td class="form-group">
+                    <select name="fifth{{i+1}}" id="fifth{{i+1}}" placeholder="Driver">
+                    <option disabled selected value="">Fifth</option>
+                    {% for driver in drivers %}
+                        <option value="{{driver.initials}}">{{driver["initials"]}}</option>
+                    {% endfor %}
+                    </select> 
+                    <br>
+                    <input type="radio" id="fastestlapE{{i+1}}" name="fastestlap{{i+1}}"  value="fastestlapE{{i+1}}">
+                    <label for="fastestlapE{{i+1}}"> Fastest lap</label>
+                </td>
+                {% endfor %}
+            </tr>
+            <tr>
+                <th>6</th>
+                {% for i in range(nraces) %}
+                <td class="form-group">
+                    <select name="sixth{{i+1}}" id="sixth{{i+1}}" placeholder="Driver">
+                    <option disabled selected value="">Sixth</option>
+                    {% for driver in drivers %}
+                        <option value="{{driver.initials}}">{{driver["initials"]}}</option>
+                    {% endfor %}
+                    </select> 
+                    <br>
+                    <input type="radio" id="fastestlapF{{i+1}}" name="fastestlap{{i+1}}"  value="fastestlapF{{i+1}}">
+                    <label for="fastestlapF{{i+1}}"> Fastest lap</label>
+                </td>
+                {% endfor %}
+            </tr>
+            <tr>
+                <th>7</th>
+                {% for i in range(nraces) %}
+                <td class="form-group">
+                    <select name="seventh{{i+1}}" id="seventh{{i+1}}" placeholder="Driver">
+                    <option disabled selected value="">Seventh</option>
+                    {% for driver in drivers %}
+                        <option value="{{driver.initials}}">{{driver["initials"]}}</option>
+                    {% endfor %}
+                    </select> 
+                    <br>
+                    <input type="radio" id="fastestlapG{{i+1}}" name="fastestlap{{i+1}}"  value="fastestlapG{{i+1}}">
+                    <label for="fastestlapG{{i+1}}"> Fastest lap</label>
+                </td>
+                {% endfor %}
+            </tr>
+            <tr>
+                <th>8</th>
+                {% for i in range(nraces) %}
+                <td class="form-group">
+                    <select name="eighth{{i+1}}" id="eighth{{i+1}}" placeholder="Driver">
+                    <option disabled selected value="">Eighth</option>
+                    {% for driver in drivers %}
+                        <option value="{{driver.initials}}">{{driver["initials"]}}</option>
+                    {% endfor %}
+                    </select> 
+                    <br>
+                    <input type="radio" id="fastestlapH{{i+1}}" name="fastestlap{{i+1}}"  value="fastestlapH{{i+1}}">
+                    <label for="fastestlapH{{i+1}}"> Fastest lap</label>
+                </td>
+                {% endfor %}
+            </tr>
+            <tr>
+                <th>9</th>
+                {% for i in range(nraces) %}
+                <td class="form-group">
+                    <select name="nineth{{i+1}}" id="nineth{{i+1}}" placeholder="Driver">
+                    <option disabled selected value="">Nineth</option>
+                    {% for driver in drivers %}
+                        <option value="{{driver.initials}}">{{driver["initials"]}}</option>
+                    {% endfor %}
+                    </select> 
+                    <br>
+                    <input type="radio" id="fastestlapI{{i+1}}" name="fastestlap{{i+1}}"  value="fastestlapI{{i+1}}">
+                    <label for="fastestlapI{{i+1}}"> Fastest lap</label>
+                </td>
+                {% endfor %}
+            </tr>
+            <tr>
+                <th>10</th>
+                {% for i in range(nraces) %}
+                <td class="form-group">
+                    <select name="tenth{{i+1}}" id="tenth{{i+1}}" placeholder="Driver">
+                    <option disabled selected value="">Tenth</option>
+                    {% for driver in drivers %}
+                        <option value="{{driver.initials}}">{{driver["initials"]}}</option>
+                    {% endfor %}
+                    </select> 
+                    <br>
+                    <input type="radio" id="fastestlapJ{{i+1}}" name="fastestlap{{i+1}}"  value="fastestlapJ{{i+1}}">
+                    <label for="fastestlapJ{{i+1}}"> Fastest lap</label>
+                </td>
+                {% endfor %}
+            </tr>
+            <tr>
+                <th>11</th>
+                {% for i in range(nraces) %}
+                <td class="form-group">
+                    <select name="eleventh{{i+1}}" id="eleventh{{i+1}}" placeholder="Driver">
+                    <option disabled selected value="">Eleventh</option>
+                    {% for driver in drivers %}
+                        <option value="{{driver.initials}}">{{driver["initials"]}}</option>
+                    {% endfor %}
+                    </select> 
+                </td>
+                {% endfor %}
+            </tr>
+            <tr>
+                <th>12</th>
+                {% for i in range(nraces) %}
+                <td class="form-group">
+                    <select name="twelfth{{i+1}}" id="twelfth{{i+1}}" placeholder="Driver">
+                    <option disabled selected value="">Twelfth</option>
+                    {% for driver in drivers %}
+                        <option value="{{driver.initials}}">{{driver["initials"]}}</option>
+                    {% endfor %}
+                    </select> 
+                </td>
+                {% endfor %}
+            </tr>
+            <tr>
+                <th>13</th>
+                {% for i in range(nraces) %}
+                <td class="form-group">
+                    <select name="thirteenth{{i+1}}" id="thirteenth{{i+1}}" placeholder="Driver">
+                    <option disabled selected value="">Thirteenth</option>
+                    {% for driver in drivers %}
+                        <option value="{{driver.initials}}">{{driver["initials"]}}</option>
+                    {% endfor %}
+                    </select> 
+                </td>
+                {% endfor %}
+            </tr>
+            <tr>
+                <th>14</th>
+                {% for i in range(nraces) %}
+                <td class="form-group">
+                    <select name="fourteenth{{i+1}}" id="fourteenth{{i+1}}" placeholder="Driver">
+                    <option disabled selected value="">Fourteenth</option>
+                    {% for driver in drivers %}
+                        <option value="{{driver.initials}}">{{driver["initials"]}}</option>
+                    {% endfor %}
+                    </select> 
+                </td>
+                {% endfor %}
+            </tr>
+            <tr>
+                <th>15</th>
+                {% for i in range(nraces) %}
+                <td class="form-group">
+                    <select name="fifteenth{{i+1}}" id="fifteenth{{i+1}}" placeholder="Driver">
+                    <option disabled selected value="">Fifteenth</option>
+                    {% for driver in drivers %}
+                        <option value="{{driver.initials}}">{{driver["initials"]}}</option>
+                    {% endfor %}
+                    </select> 
+                </td>
+                {% endfor %}
+            </tr>
+            <tr>
+                <th>16</th>
+                {% for i in range(nraces) %}
+                <td class="form-group">
+                    <select name="sixteenth{{i+1}}" id="sixteenth{{i+1}}" placeholder="Driver">
+                    <option disabled selected value="">Sixteenth</option>
+                    {% for driver in drivers %}
+                        <option value="{{driver.initials}}">{{driver["initials"]}}</option>
+                    {% endfor %}
+                    </select> 
+                </td>
+                {% endfor %}
+            </tr>
+            <tr>
+                <th>17</th>
+                {% for i in range(nraces) %}
+                <td class="form-group">
+                    <select name="seventeenth{{i+1}}" id="seventeenth{{i+1}}" placeholder="Driver">
+                    <option disabled selected value="">Seventeenth</option>
+                    {% for driver in drivers %}
+                        <option value="{{driver.initials}}">{{driver["initials"]}}</option>
+                    {% endfor %}
+                    </select> 
+                </td>
+                {% endfor %}
+            </tr>
+            <tr>
+                <th>18</th>
+                {% for i in range(nraces) %}
+                <td class="form-group">
+                    <select name="eighteenth{{i+1}}" id="eighteenth{{i+1}}" placeholder="Driver">
+                    <option disabled selected value="">Eighteenth</option>
+                    {% for driver in drivers %}
+                        <option value="{{driver.initials}}">{{driver["initials"]}}</option>
+                    {% endfor %}
+                    </select> 
+                </td>
+                {% endfor %}
+            </tr>
+            <tr>
+                <th>19</th>
+                {% for i in range(nraces) %}
+                <td class="form-group">
+                    <select name="nineteenth{{i+1}}" id="nineteenth{{i+1}}" placeholder="Driver">
+                    <option disabled selected value="">Nineteenth</option>
+                    {% for driver in drivers %}
+                        <option value="{{driver.initials}}">{{driver["initials"]}}</option>
+                    {% endfor %}
+                    </select> 
+                </td>
+                {% endfor %}
+            </tr>
+            <tr>
+                <th>20</th>
+                {% for i in range(nraces) %}
+                <td class="form-group">
+                    <select name="twentieth{{i+1}}" id="twentieth{{i+1}}" placeholder="Driver">
+                    <option disabled selected value="">Twentieth</option>
+                    {% for driver in drivers %}
+                        <option value="{{driver.initials}}">{{driver["initials"]}}</option>
+                    {% endfor %}
+                    </select> 
+                </td>
+                {% endfor %}
+            </tr>
+        </tbody>
+    </table>
+    <footer>
+        <br>
+        <button class="btn btn-primary" type="submit">Submit simulation</button>
+    </footer>
+    </form>
+{% endblock %}

@@ -1,0 +1,13 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Apology
+{% endblock %}
+
+{% block main %}
+    <form action="/simulate" method="post">
+        <label for="nraces">Number of races that will be simulated (max=23):</label>
+        <input type="number" name="nraces" id="nraces" max="23" min="1"><br>
+        <button class="btn btn-primary" type="submit">Start simulating</button>
+    </form>
+{% endblock %}
